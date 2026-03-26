@@ -12,7 +12,7 @@
   <body>
     <div class="contenedor">
       <div class="navContenedor">
-        <button class="nuevaNota">+ Nueva nota</button>
+        <button class="nuevaNota" onclick="nota()">+ Nueva nota</button>
         <button class="configuracion">
           <i class="bi bi-gear"></i> Configuracion
         </button>
@@ -23,6 +23,14 @@
       <button class="btnPreview" id="btnPreview">
         <i class="bi bi-arrow-left-short"></i>
       </button>
+      <div class="navaux"></div>
+      <div class="navpreview">
+        <p class="titulo"></p>
+        <button class="abrirNota">
+          Abrir <i class="bi bi-arrow-left-short"></i>
+        </button>
+      </div>
+      <div class="contenidoPreview"></div>
     </div>
   </body>
   <script src="index.js"></script>

@@ -7,7 +7,7 @@ class Api:
     # iniciar creando la conexion
     def __init__(self):
         # en produccion cambiar a aplicacion.db
-        self.conn = sqlite3.connect("Database/test.db")
+        self.conn = sqlite3.connect("Database/test.db",check_same_thread=False)
         # despues de que se crea la conexion creamos la tabla
         self.crearTablas()
 
