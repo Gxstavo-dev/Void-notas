@@ -3,4 +3,4 @@ Api/__pycache__
 *.spec
 build/
 dist/
-Database/app.db
+app.db
