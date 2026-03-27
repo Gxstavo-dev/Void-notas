@@ -1,16 +1,23 @@
 import sqlite3
+import os
+import sys
 
+def resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):  # empaquetado con PyInstaller
+        base = os.path.dirname(sys.executable)
+    else:  # desarrollo normal
+        base = os.path.abspath(".")
+    return os.path.join(base, relative_path)
 
 # clase para usarla en main.py como objeto js_api
 class Api:
 
     # iniciar creando la conexion
     def __init__(self):
-        # en produccion cambiar a aplicacion.db
-        self.conn = sqlite3.connect("Database/test.db",check_same_thread=False)
-        # despues de que se crea la conexion creamos la tabla
+        db_path = resource_path("Database/app.db")
+        os.makedirs(os.path.dirname(db_path), exist_ok=True)  # crea la carpeta si no existe
+        self.conn = sqlite3.connect(db_path, check_same_thread=False)
         self.crearTablas()
-
     # creamos la tabla con la que trabajaremos en la app
     def crearTablas(self):
         try:
