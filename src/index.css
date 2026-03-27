@@ -70,18 +70,6 @@ body {
   border: none;
 }
 
-/* boton configuracion */
-.navContenedor .configuracion {
-  border: none;
-  background-color: transparent;
-  transition: transform 500ms ease-in-out; /* animacion suave */
-}
-
-.navContenedor .configuracion:hover {
-  transform: scale(1.05);
-  background-color: var(--backgroundBotones);
-  border: 1px solid var(--colorBorde);
-}
 
 /* contenedor donde se mostrara la notas y el total que tiene */
 .contenedor .main {
