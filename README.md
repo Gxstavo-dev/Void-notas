@@ -1,6 +1,6 @@
 # VOID NOTES
 
-![Preview](assets/ejemplo.png)
+![Preview](assets/ejemplo1.png)
 ![Preview](assets/ejemplo2.png)
 
 > Aplicación de escritorio minimalista para tomar notas, diseñada para entornos Linux con Hyprland.
@@ -31,10 +31,10 @@
 ### Descargar ejecutable
 
 1. Ve a la sección de [Releases](https://github.com/Gxstavo-dev/Void-notas/releases)
-2. Descarga el archivo `void-notas-v1.0.0-linux.zip`
+2. Descarga el archivo `void-notas-v1.0.0-linux-x86_64.zip`
 3. Descomprime el archivo
 ```bash
-unzip void-notas-v1.0.0-linux.zip
+unzip void-notas-v1.0.0-linux-x86_64.zip
 ```
 4. Dale permisos de ejecución y corre la app
 ```bash
