@@ -34,7 +34,7 @@
 2. Descarga el archivo `void-notas-v1.0.0-linux.zip`
 3. Descomprime el archivo
 ```bash
-unzip void-notas-v1.0.0-linux-x86_64.zip
+unzip void-notas-v1.0.0-linux.zip
 ```
 4. Dale permisos de ejecución y corre la app
 ```bash
