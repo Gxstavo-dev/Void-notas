@@ -1,13 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p class="id"></p>
-    <p class="Titulo"></p>
-</body>
-    <script src="contenidousuario.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="contenido.css" />
+    <meta name="view-transition" content="same-origin" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <div class="contenedor">
+      <div class="nav">
+        <button class="regresar">
+          <i class="bi bi-arrow-left-short"></i>
+          Regresar
+        </button>
+        <div class="datos">
+          <p class="Id"></p>
+          <p class="Titulo" contenteditable="true"></p>
+        </div>
+      </div>
+
+      <div class="main" contenteditable="true"></div>
+    </div>
+  </body>
+  <script src="contenidousuario.js"></script>
 </html>

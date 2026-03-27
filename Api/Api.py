@@ -46,7 +46,7 @@ class Api:
             query = """
                 Update notas SET titulo = ? , contenido = ? , ultimoGuardado = ? WHERE id = ?;
             """
-            self.conn.execute(query, (id, titulo, contenido, ultimoGuardado))
+            self.conn.execute(query, ( titulo, contenido, ultimoGuardado,id))
             self.conn.commit()
         except sqlite3.Error as err:
             print("Ocurrio un error: ", err)

@@ -8,6 +8,7 @@ const btnAbrirNota = document.querySelector(".abrirNota");
 const contenedorPreview = document.querySelector(".contenedorPreview");
 const contenedorMain = document.querySelector(".main");
 const tituloPreview = document.querySelector(".titulo");
+const contenidoPreview = document.querySelector(".contenidoPreview");
 
 // Funcion para abrir y cerrar el panel lateral (el preview)
 function togglePreview() {
@@ -25,7 +26,9 @@ async function crearNuevaNota() {
 
   try {
     // Le decimos a Python que cree la nota en la base de datos
-    await api.crearNota("Sin titulo", "", fechaActual);
+    const id = await api.crearNota("Sin titulo", "", fechaActual);
+    window.location.href = `./content/paginaContenido.html?id=${id}`;
+
     await mostrarNotas(); // Refrescamos la lista para que aparezca la nueva
   } catch (error) {
     console.error("Error al crear nota:", error);
@@ -52,12 +55,22 @@ async function mostrarNotas() {
       divNota.addEventListener("dblclick", () => {
         notaSeleccionadaId = id; // Guardamos cual selecciono el usuario
         tituloPreview.textContent = tituloTxt;
+        contenidoPreview.innerHTML = contenido;
+
+         console.log(JSON.stringify(contenido));
+
+        tituloPreview.classList.remove("animar");
+        contenidoPreview.classList.remove("animar");
+        void contenidoPreview.offsetWidth; // fuerza reflow para que funcione
+        tituloPreview.classList.add("animar");
+        contenidoPreview.classList.add("animar");
+
         abrirPreview(); // Abrimos el panel
       });
 
       // Creamos los textos de titulo y fecha para meterlos al div
       const pTitulo = document.createElement("p");
-      pTitulo.textContent = `Id: ${id} - ${tituloTxt}`;
+      pTitulo.textContent = `${tituloTxt}`;
 
       const pFecha = document.createElement("p");
       pFecha.textContent = String(fechaTxt);
