@@ -31,7 +31,7 @@
 ### Descargar ejecutable
 
 1. Ve a la sección de [Releases](https://github.com/Gxstavo-dev/Void-notas/releases)
-2. Descarga el archivo `void-notas-v1.0.0-linux-x86_64.zip`
+2. Descarga el archivo `void-notas-v1.0.0-linux.zip`
 3. Descomprime el archivo
 ```bash
 unzip void-notas-v1.0.0-linux-x86_64.zip
