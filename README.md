@@ -9,7 +9,7 @@
 
 ## ✨ Funcionalidades
 
-- Crear, editar y eliminar notas
+- Crear y editar notas
 - Guardado automático mientras escribes
 - Panel lateral preview para ver el contenido sin abrir la nota
 - Animaciones suaves entre notas
