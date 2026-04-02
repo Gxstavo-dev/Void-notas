@@ -2,12 +2,14 @@ import sqlite3
 import os
 import sys
 
+
 def resource_path(relative_path):
-    if hasattr(sys, '_MEIPASS'):  # empaquetado con PyInstaller
+    if hasattr(sys, "_MEIPASS"):  # empaquetado con PyInstaller
         base = os.path.dirname(sys.executable)
     else:  # desarrollo normal
         base = os.path.abspath(".")
     return os.path.join(base, relative_path)
+
 
 # clase para usarla en main.py como objeto js_api
 class Api:
@@ -15,9 +17,12 @@ class Api:
     # iniciar creando la conexion
     def __init__(self):
         db_path = resource_path("Database/app.db")
-        os.makedirs(os.path.dirname(db_path), exist_ok=True)  # crea la carpeta si no existe
+        os.makedirs(
+            os.path.dirname(db_path), exist_ok=True
+        )  # crea la carpeta si no existe
         self.conn = sqlite3.connect(db_path, check_same_thread=False)
         self.crearTablas()
+
     # creamos la tabla con la que trabajaremos en la app
     def crearTablas(self):
         try:
@@ -53,7 +58,7 @@ class Api:
             query = """
                 Update notas SET titulo = ? , contenido = ? , ultimoGuardado = ? WHERE id = ?;
             """
-            self.conn.execute(query, ( titulo, contenido, ultimoGuardado,id))
+            self.conn.execute(query, (titulo, contenido, ultimoGuardado, id))
             self.conn.commit()
         except sqlite3.Error as err:
             print("Ocurrio un error: ", err)
@@ -80,5 +85,15 @@ class Api:
             filas = self.conn.execute(query)
             self.conn.commit()
             return filas.fetchall()
+        except sqlite3.Error as err:
+            print("Ocurrio un error: ", err)
+
+    def eliminarNota(self, id):
+        try:
+            query = """
+            DELETE FROM notas WHERE id = ?;
+            """
+            self.conn.execute(query, (id,))
+            self.conn.commit()
         except sqlite3.Error as err:
             print("Ocurrio un error: ", err)

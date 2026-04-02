@@ -57,7 +57,7 @@ async function mostrarNotas() {
         tituloPreview.textContent = tituloTxt;
         contenidoPreview.innerHTML = contenido;
 
-         console.log(JSON.stringify(contenido));
+        console.log(JSON.stringify(contenido));
 
         tituloPreview.classList.remove("animar");
         contenidoPreview.classList.remove("animar");
@@ -66,6 +66,49 @@ async function mostrarNotas() {
         contenidoPreview.classList.add("animar");
 
         abrirPreview(); // Abrimos el panel
+      });
+
+      divNota.addEventListener("contextmenu", async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        document.getElementById("menuextra")?.remove();
+
+        const menuextra = document.createElement("div");
+        menuextra.setAttribute("popover", "manual");
+        menuextra.id = "menuextra";
+        menuextra.classList.add("menuExtrappver");
+
+        menuextra.style.position = "fixed";
+        menuextra.style.left = `${e.clientX}px`;
+        menuextra.style.top = `${e.clientY}px`;
+        menuextra.style.margin = "0";
+
+        const botonEliminar = document.createElement("button");
+        botonEliminar.classList.add("btnMenuExtra");
+        botonEliminar.textContent = "Eliminar nota";
+        menuextra.appendChild(botonEliminar);
+        contenedorMain.appendChild(menuextra);
+        menuextra.showPopover();
+
+        botonEliminar.addEventListener("click", async () => {
+          try {
+            await api.eliminarNota(divNota.dataset.id);
+            menuextra.hidePopover();
+            await mostrarNotas()
+          } catch (error) {
+            console.error("Error al eliminar la nota:", error);
+          }
+        });
+
+        const cerrar = (ev) => {
+          if (!menuextra.contains(ev.target)) {
+            menuextra.hidePopover();
+            menuextra.remove();
+            document.removeEventListener("pointerdown", cerrar);
+          }
+        };
+        document.addEventListener("pointerdown", cerrar);
       });
 
       // Creamos los textos de titulo y fecha para meterlos al div
