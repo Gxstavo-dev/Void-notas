@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <meta name="view-transition" content="same-origin" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <div class="contenedor">
+      <div class="navContenedor">
+        <button class="nuevaNota" onclick="crearNuevaNota()">
+          + Nueva nota
+        </button>
+      </div>
+      <div class="main"></div>
+    </div>
+    <div class="contenedorPreview">
+      <button class="btnPreview" id="btnPreview">
+        <i class="bi bi-arrow-left-short"></i>
+      </button>
+      <div class="navaux"></div>
+      <div class="navpreview">
+        <p class="titulo"></p>
+        <button class="abrirNota">
+          Abrir <i class="bi bi-arrow-left-short"></i>
+        </button>
+      </div>
+      <div class="contenidoPreview"></div>
+    </div>
+  </body>
+  <script type="module" src="./dist/index.js"></script>
+</html>
