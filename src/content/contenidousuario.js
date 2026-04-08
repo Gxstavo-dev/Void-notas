@@ -36,8 +36,8 @@ async function infoNota() {
       }, 500);
     };
 
-    main.addEventListener("input", guardar); // ✅ escucha cambios en contenido
-    titulo.addEventListener("input", guardar); // ✅ escucha cambios en título
+    main.addEventListener("input", guardar); 
+    titulo.addEventListener("input", guardar); 
   } catch (error) {
     console.error("Error al mostrar notas:", error);
   }
